@@ -1,17 +1,11 @@
 const express = require("express")
 const app = express()
 const tasks = require('./routes/tasks')
-const conenctDB = require('./db/connect')
 const connDB = require("./db/connect")
 require('dotenv').config()
 
 // Middleware
 app.use(express.json())
-
-// Routes
-app.get('/hello', (req, res) => {
-    res.send("Task Manager App")
-})
 
 
 app.use('/api/v1/tasks', tasks)
