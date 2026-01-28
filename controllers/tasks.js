@@ -22,7 +22,7 @@ const getTask = async (req, res) => {
         const {id:taskID} = req.params
         const task = await Task.findOne({_id: taskID})
         
-        if(!task){
+        if(!task) {
             return res.status(404).json({msg: `No taks with id: ${taskID}`})
         }
 
@@ -39,7 +39,7 @@ const updateTask = async (req, res) => {
             new:true, 
             runValidators:true
         })
-        if(!task){
+        if(!task) {
             return res.status(404).json({msg: `No taks with id: ${taskID}`})
         }
         res.status(200).json({task})
@@ -52,7 +52,7 @@ const deleteTask = async (req, res) => {
     try {
         const {id:taskID} = req.params
         const task = await Task.findOneAndDelete({_id: taskID})
-        if(!task){
+        if(!task) {
             return res.status(404).json({msg: `No taks with id: ${taskID}`})
         }
         res.status(200).json({task})

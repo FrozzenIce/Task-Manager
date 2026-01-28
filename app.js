@@ -6,9 +6,8 @@ require('dotenv').config()
 
 // Middleware
 app.use(express.json())
-
-
 app.use('/api/v1/tasks', tasks)
+
 
 const port = 3000
 
