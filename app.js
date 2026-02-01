@@ -14,12 +14,12 @@ app.use('/api/v1/tasks', tasks)
 app.use(notFound)
 app.use(errorHandler)
 
-const port = 3000
+const PORT = process.env.PORT || 3000
 
 const start = async () => {
     try {
         await connDB(process.env.MONGO_URI)
-        app.listen(port, console.log(`Server is listening on port ${port}`))
+        app.listen(PORT, console.log(`Server is listening on port ${PORT}`))
     } catch (error) {
         console.log(error)
     }
